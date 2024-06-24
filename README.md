@@ -1,0 +1,1 @@
+To see what is in the Prisma - npx prisma studio
