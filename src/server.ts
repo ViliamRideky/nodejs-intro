@@ -18,8 +18,10 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(customLogger('custom logger'))
 
-app.get('/', (req, res) => {
-    throw new Error('hello error')
+app.get('/', (req, res, next) => {
+    setTimeout(() => {
+        next(new Error('hello error'))
+    },1)
 })
 
 app.use('/api', protect, router)
